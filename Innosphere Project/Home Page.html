@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tech Home Page - List Of Patients</title>
+    <link href="https://cdn.syncfusion.com/ej2/24.1.41/material.css" rel="stylesheet" />
+    <script src="https://cdn.syncfusion.com/ej2/24.1.41/dist/ej2.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: white;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .logo {
+            height: 35px;
+            width: auto;
+        }
+
+        .text {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 28px;
+            font-weight: bold;
+            color: #B2BEB5;
+        }
+
+        .grid-container {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="InnoSphereLogo.png" alt="Innosphere Logo" class="logo">
+        <div class="text">Patient List</div>
+        
+    </header>
+
+   <hr>
+    <div class="grid-container">
+        <div id="Grid"></div>
+    </div>
+
+    <script>
+        var patientData = [
+            { UniqueId: 1, FirstName: "John", LastName: "Doe", Gender: "Male", ContactNumber: "1234567890", Center: "Center A", SubCenter: "Sub A" },
+            { UniqueId: 2, FirstName: "Jane", LastName: "Smith", Gender: "Female", ContactNumber: "9876543210", Center: "Center B", SubCenter: "Sub B" },
+            { UniqueId: 3, FirstName: "Ali", LastName: "Khan", Gender: "Male", ContactNumber: "9988776655", Center: "Center C", SubCenter: "Sub C" }
+        ];
+
+        var grid = new ej.grids.Grid({
+            dataSource: patientData,
+            allowPaging: true,
+            allowTextWrap: true,
+            toolbar: ['Search'],
+            columns: [
+                { field: 'UniqueId', headerText: 'Patient ID', isPrimaryKey: true, textAlign: 'Center' },
+                { field: 'FirstName', headerText: 'First Name', textAlign: 'Center' },
+                { field: 'LastName', headerText: 'Last Name', textAlign: 'Center' },
+                { field: 'Gender', headerText: 'Gender', textAlign: 'Center' },
+                { field: 'ContactNumber', headerText: 'Contact Number', textAlign: 'Center' },
+                { field: 'Center', headerText: 'Center', textAlign: 'Center' },
+                { field: 'SubCenter', headerText: 'Sub Center', textAlign: 'Center' }
+            ]
+        });
+        grid.appendTo('#Grid');
+    </script>
+</body>
+</html>
